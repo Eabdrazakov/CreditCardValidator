@@ -24,5 +24,11 @@ const: textArray = [4, 2, 0, 4, 0, 7, 0, 7, 8, 0, 4, 6, 5, 3, 2, 0, 7];
 creditCardLength(textArray);
 Expected Output: false
 
+Descride: doublingEveryOtherDigit()
 
+Test: "It should double every second element from the end of Array"
+Code:  doublingEveryOtherDigit()
+const: [4, 1, 0, 2, 0, 8, 0, 8, 8, 0, 4, 3, 5, 6, 2, 0];
+creditCardLength(textArray);
+Expected Output: [4, 2, 0, 4, 0, 16, 0, 16, 8, 0, 4, 6, 5, 12, 2, 0]
 

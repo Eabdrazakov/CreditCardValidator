@@ -28,7 +28,15 @@ Descride: doublingEveryOtherDigit()
 
 Test: "It should double every second element from the end of Array"
 Code:  doublingEveryOtherDigit()
-const: [4, 1, 0, 2, 0, 8, 0, 8, 8, 0, 4, 3, 5, 6, 2, 0];
+const: textArray = [4, 1, 0, 2, 0, 8, 0, 8, 8, 0, 4, 3, 5, 6, 2, 0];
 creditCardLength(textArray);
 Expected Output: [4, 2, 0, 4, 0, 16, 0, 16, 8, 0, 4, 6, 5, 12, 2, 0]
 
+
+Describe: addingDigitsOfDoubleDigitNumbers()
+
+Test: "Every 2 digits number should be added together each digit of the double digit number"
+Code:  doublingEveryOtherDigit()
+const:  textArray =[18, 10, 11, 12, 13, 8, 0, 8, 8, 0, 4, 3, 5, 6, 2]; 
+creditCardLength(textArray);
+Expected Output: [9, 1, 2, 3, 4, 8, 0, 8, 8, 0, 4, 3, 5, 6, 2]

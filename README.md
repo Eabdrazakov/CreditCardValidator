@@ -73,3 +73,13 @@ Code: sumOfNumbers()
 const: textArray = [4204 0707 8046 5320]
 creditCardLength(textArray);
 Expected Output: (50) -> true
+
+
+Descride: validatingFirstDigits()
+
+Test: "It should return 'Visa card' if first element of array is equal 4"
+Code: const numbersArrayTest4 = [4,2,0,4,0,7,0,7,8,0,4,6,5,3,2,0];
+convertStringToNumberArray(inputTextTest4);
+Expected Output: "Visa card"
+
+

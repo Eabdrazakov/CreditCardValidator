@@ -1,3 +1,18 @@
+function convertTextToNumberArray(text) {
+    let nonNumericRegex = /\D/;
+    let isString = typeof text === 'string';
+    if (isString && text.length > 0 && !nonNumericRegex.test(text)) {
+        let splittingArray = text.split("");
+        let resultArray = splittingArray.map(function (element) {
+            return parseInt(element);
+        });
+        return resultArray;
+    } else {
+        return null;
+    }
+}
+
+
 function isCreditCardLengthCorrect(creditCardArray) {
     if (creditCardArray.length === 16 || creditCardArray.length === 15) {
         return true;
@@ -12,7 +27,7 @@ function doublingEveryOtherDigit(creditCardArray) {
     let result = [];
 
     result = reversedArray.map(function (number, index) {
-        if (index % 2 === 0) {
+        if (index % 2 === 1) {
             return number * 2;
         } else {
             return number;
@@ -36,13 +51,30 @@ function addingDigitsOfDoubleDigitNumbers(creditCardArray) {
     return resultArray;
 }
 
-// const array2 = [18, 10, 11, 12, 13, 8, 0, 8, 8, 0, 4, 3, 5, 6, 2];
-// console.log(addingDigitsOfDoubleDigitNumbers(array2));
 
-// const array1 = [4, 1, 0, 2, 0, 8, 0, 8, 8, 0, 4, 3, 5, 6, 2, 0];
-// console.log(doublingEveryOtherDigit(array1));
+function sumOfNumbers(creditCardArray) {
+    let sum = 0;
+
+    creditCardArray.forEach(function (number) {
+        sum += number;
+    })
+    if (sum % 10 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
-// const array = [4, 2, 0, 4, 0, 7, 0, 7, 8, 0, 4, 6, 5, 3, 5, 7]
-// console.log(isCreditCardLengthCorrect(array));
+
+const inputTextTest1 = "4204070780465320";
+console.log(convertTextToNumberArray(inputTextTest1));
+
+const inputTextTest2 = "42a04070780465320";
+console.log(convertTextToNumberArray(inputTextTest2));
+
+const inputTextTest3 = "";
+console.log(convertTextToNumberArray(inputTextTest3));
+
+
 

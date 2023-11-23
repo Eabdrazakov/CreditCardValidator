@@ -82,4 +82,28 @@ Code: const numbersArrayTest4 = [4,2,0,4,0,7,0,7,8,0,4,6,5,3,2,0];
 convertStringToNumberArray(inputTextTest4);
 Expected Output: "Visa card"
 
+Test: "It should return 'Mastercard' if first element of array is equal 5"
+Code: const numbersArrayTest4 = [5,2,0,4,0,7,0,7,8,0,4,6,5,3,2,0];
+convertStringToNumberArray(inputTextTest4);
+Expected Output: "Mastercard"
 
+Test: "It should return 'Discover card' if first element of array is equal 6"
+Code: const numbersArrayTest4 = [6,2,0,4,0,7,0,7,8,0,4,6,5,3,2,0];
+convertStringToNumberArray(inputTextTest4);
+Expected Output: "Discover card"
+
+Test: "It should return 'American Express card' if first element of array is equal 3 and second element 4 or 7"
+Code: const numbersArrayTest4 = [3,4,0,4,0,7,0,7,8,0,4,6,5,3,2,0];
+convertStringToNumberArray(inputTextTest4);
+Expected Output: "American Express card'"
+
+Test: "It should return 'Null' if first element expect 4,5,6,3"
+Code: const numbersArrayTest4 = [2,0,4,0,7,0,7,8,0,4,6,5,3,2,0];
+convertStringToNumberArray(inputTextTest4);
+Expected Output: "Null"
+
+
+Descride: creditCardValidator()
+
+Test: "It should return all functon to on function"
+Expected Output: creditCardValidator()

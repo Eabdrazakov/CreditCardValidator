@@ -66,19 +66,68 @@ function sumOfNumbers(creditCardArray) {
 }
 
 function validatingFirstDigitNumbers(creditCardArray) {
+
+    let isString = typeof creditCardArray === "string";
     if (creditCardArray[0] === "4") {
         return "Visa card"
     } else if (creditCardArray[0] === "5") {
         return "Mastercard"
     } else if (creditCardArray[0] === "6") {
         return "Discover card"
-    } else if (creditCardArray[0] === "3") {
+    } else if (creditCardArray[0][1] === "3", "4" || "7") {
         return "American Express"
     } else {
         return null;
     }
 }
 
+function creditCardValidator(text) {
+    if (convertTextToNumberArray(text) != null) {
+        const numbersArray = convertTextToNumberArray(text);
+        if (isCreditCardLengthCorrect(numbersArray)) {
+            return sumOfNumbers(addingDigitsOfDoubleDigitNumbers(doublingEveryOtherDigit(numbersArray)));
+        } else
+            return false
+    } else
+        return false
+}
+
+
+//UI Logic
+
+function submitValidator(e) {
+    e.preventDefault();
+    const textInput = document.querySelector("input#creditCardNumber").value;
+    const creditCard = creditCardValidator(textInput);
+    const validating = validatingFirstDigitNumbers(textInput)
+
+    document.getElementById("result").innerText = creditCard;
+}
+
+
+window.addEventListener("load", function () {
+    document.getElementById("inputForm").addEventListener("submit", submitValidator);
+})
+
+
+// console.log(creditCardValidator("378282246310005"));
+// console.log(creditCardValidator("371449635398431"));
+// console.log(creditCardValidator("378734493671000"));
+// console.log(creditCardValidator("5499740000000057"));
+// console.log(creditCardValidator("5555555555554444"));
+// console.log(creditCardValidator("5105105105105100"));
+
+// console.log(creditCardValidator("6011000991001201"));
+// console.log(creditCardValidator("6011111111111117"));
+// console.log(creditCardValidator("6011000990139424"));
+
+// console.log(creditCardValidator("4111111111111111"));
+// console.log(creditCardValidator("4242424242424242"));
+// console.log(creditCardValidator("4012888888881881"));
+// console.log(creditCardValidator("7222222222222"));
+
+// console.log(creditCardValidator("5105105105105100"));
+// console.log(creditCardValidator("420a4070780465320"));
 
 
 // const array = "4, 1, 0, 2, 0, 8, 0, 8, 8, 0, 4, 3, 5, 6, 2, 0";

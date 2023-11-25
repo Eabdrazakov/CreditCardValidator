@@ -41,8 +41,8 @@ function addingDigitsOfDoubleDigitNumbers(creditCardArray) {
     resultArray = creditCardArray.map(function (element) {
         if (element > 9) {
             let str = element.toString();
-            num1 = parseInt(str[0]);
-            num2 = parseInt(str[1]);
+            let num1 = parseInt(str[0]);
+            let num2 = parseInt(str[1]);
             return num1 + num2;
         }
         else
@@ -67,17 +67,17 @@ function sumOfNumbers(creditCardArray) {
 
 function validatingFirstDigitNumbers(creditCardArray) {
 
-    let isString = typeof creditCardArray === "string";
-    if (creditCardArray[0] === "4") {
+
+    if (creditCardArray[0] === 4) {
         return "Visa card"
-    } else if (creditCardArray[0] === "5") {
+    } else if (creditCardArray[0] === 5) {
         return "Mastercard"
-    } else if (creditCardArray[0] === "6") {
+    } else if (creditCardArray[0] === 6) {
         return "Discover card"
-    } else if (creditCardArray[0][1] === "3", "4" || "7") {
+    } else if (creditCardArray[0] === 3 && creditCardArray[1] === 4 || creditCardArray[1] === 7) {
         return "American Express"
     } else {
-        return null;
+        return "some card of which we've never heard";
     }
 }
 
@@ -98,10 +98,14 @@ function creditCardValidator(text) {
 function submitValidator(e) {
     e.preventDefault();
     const textInput = document.querySelector("input#creditCardNumber").value;
-    const creditCard = creditCardValidator(textInput);
-    const validating = validatingFirstDigitNumbers(textInput)
 
-    document.getElementById("result").innerText = creditCard;
+    if (creditCardValidator(textInput)) {
+        const cardType = validatingFirstDigitNumbers(convertTextToNumberArray(textInput));
+        document.getElementById("result").innerText = `This ${cardType} card  is valid `;
+    }
+    else {
+        document.getElementById("result").innerText = "Card is not valid";
+    }
 }
 
 
